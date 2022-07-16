@@ -1,9 +1,10 @@
 let id = 0;
 let user = ["Ari", "Alison", "Chloe"];
 let status = ["TODO", "DONE"]
-let cardList = [];
+let todoList = [];
+let doneList = [];
 class card {
-    constructor(id) {
+    constructor() {
         this._id = countID();
         this._name;
         this._description;
