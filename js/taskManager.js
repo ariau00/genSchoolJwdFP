@@ -1,6 +1,6 @@
 let id = 0;
 let user = ["Ari", "Alison", "Chloe"];
-let status = ["TODO", "DONE"]
+let status = ["TODO", "DOING", "DONE"]
 let todoList = [];
 let doneList = [];
 class card {
