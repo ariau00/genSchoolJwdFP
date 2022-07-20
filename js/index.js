@@ -65,13 +65,13 @@ function chooseCard(id) {
 
     $("body").append(`<div id="form" class="form"></div>`);
     $(`#form`).append(`<form id="editTask" class="d-inline" name="name" onsubmit="return taskEdit(${id})">
-        <p>Task</p>
-        <div>Name: </div><input type="text" name="fname" id="fname" class="w-100" value="${thisCard._name}">
-        <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description" value="${thisCard._description}">
-        <div>Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100" value="${thisCard._dueDate}">
-        <div>Assigned: </div>
+        <p class="addtask-w">Task</p>
+        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar" value="${thisCard._name}">
+        <div class="box-w">Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 box-bar description" value="${thisCard._description}">
+        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar" value="${thisCard._dueDate}">
+        <div class="box-w">Assigned: </div>
 
-        <select id="fAssigned" class="w-100">
+        <select id="fAssigned" class="w-100 box-bar">
             <option>${thisCard._assignedTo}</option>
             <option> Ari </option>
             <option> Alison </option>
@@ -86,8 +86,8 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
-        <input type="submit" value="submit" class="float-right ml-2"> 
+        <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
+        <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
         </form>`);
 
     if (findList(id) == "todoList") {
