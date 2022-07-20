@@ -23,11 +23,127 @@
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>	
 <!-- End of AOS 	-->
+	
+<!-- link to fontawesome -->
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <script type="text/javascript" src="js/all.js"></script>
+<!-- end of fontawesome -->
+	
+<!--	Start of Font  -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Martel+Sans:wght@200;300;400;600;700;800&family=Righteous&display=swap" rel="stylesheet">	
+<!--	End of Font    -->
+	
+	<style>
+		html {
+        height: 100%;
+      }
+        body {
+            background-image: url("img/bg.jpg");
+            background-size: cover;
+        	background-repeat: repeat;
+       	 	background-attachment: fixed;
+        	background-position: right 0% bottom 0%;
+        }
+    </style>
     <title>To do List</title>
 </head>
 
 <body>
     <button onclick = "addTask()" id="addTaskBtn">temp</button>
+<!--	Start of To Do List    -->
+	<div class="container-fiuld justify-content-center">
+	  <div class="row">
+	    <div class="col-4">	  
+			<form class="form">
+				<h2 class="form-name">To Do</h2>
+				<div class="task">
+				  <h4>Design Button</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user2.png" alt="user2.png" width="35px">
+				  </div>	
+				</div>
+				<br>
+				<div class="task">
+				  <h4>Design Logo</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user2.png" alt="user2.png" width="35px">
+				  </div>	
+				</div>
+				<br>
+				<div class="task">
+				  <h4>Responsive</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user1.png" alt="user1.png" width="35px">
+				  </div>	
+				</div>
+				<br>
+				<div class="task">
+				  <h4>Modal Boxes</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user3.png" alt="user3.png" width="35px">
+				  </div>	
+				</div>
+			</form>
+	  </div>
+		  
+		 <div class="col-4">	  
+			<form class="form">
+				<h2 class="form-name">In Progress</h2>
+				<div class="task">
+				  <h4>Drawing web page layout</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user3.png" alt="user3.png" width="35px">
+				  </div>	
+				</div>
+				<br>
+				<div class="task">
+				  <h4>Login & Logout</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				   <img class="user-img" src="img/user1.png" alt="user1.png" width="35px">
+				  </div>	
+				</div>
+				<br>
+				<div class="task">
+				  <h4>The navigation bar</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user2.png" alt="user2.png" width="35px">
+				  </div>
+				</div>
+			</form>
+	  </div>
+		  
+	     <div class="col-4">	  
+			<form class="form">
+				<h2 class="form-name">Done</h2>
+				<div class="task">
+				  <h4>Add task popup window</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user1.png" alt="user1.png" width="35px">
+				  </div>	  
+				</div>
+				<br>
+				<div class="task">
+				  <h4>Local storage: create card to array(JS)</h4>
+				  <p>Deadline: 17:00 20/07/2022</p>
+				  <div>	
+				    <img class="user-img" src="img/user3.png" alt="user3.png" width="35px">
+				  </div>	
+				</div>
+			</form>
+	  </div>	  
+	  </div>	  
+	</div>
+<!--	End of To Do List      -->
 	
 <!--Start of Bootstrap Js -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
