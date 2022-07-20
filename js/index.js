@@ -104,6 +104,7 @@ function taskSubmit() {
     task.setDescription(document.getElementById("fDescription").value)
     task.setDueDate(document.getElementById("fDueDate").value)
     task.setAssignedTo(document.getElementById("fAssigned").value)
+    task.setStatus(document.querySelector('input[name="schedule"]:checked').value)
     todoList.push(task);
     localStorage.setItem("todoList", JSON.stringify(todoList));
     printCard();

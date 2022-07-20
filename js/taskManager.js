@@ -45,7 +45,9 @@ class card {
     setDueDate(dueDate) {
         this._dueDate = dueDate;
     }
-
+    setStatus(status) {
+        this._status = status;
+    }
 }
 
 function countID() {
