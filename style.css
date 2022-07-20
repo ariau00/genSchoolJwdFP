@@ -13,8 +13,7 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: right 0% bottom 0%;
-    overflow: hidden;
-    /* Hide scrollbars */
+    overflow: hidden;   /* Hide scrollbars */
 }
 
 .addtask {
@@ -114,7 +113,7 @@ p {
 }
 
 .user-img {
-    /*  padding-bottom: 20px;*/
+    /* padding-bottom: 20px; */
     margin-top: 0px;
     margin-bottom: 14px;
 }
