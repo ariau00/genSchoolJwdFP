@@ -8,18 +8,51 @@ function start() {
     printCard();
 }
 
-
 function printCard() {
     clearCardBoard()
     let task = document.getElementsByClassName("task");
     for (let i = 0; i < todoList.length; i++) {
-        $(`#todolist`).append(`<div id="card${i}" class="myCard" draggable="true" ondragstart="drag(event)"></div>`);
-        $(`#card${i}`).append(`<div class="task"></div>`);
+        $(`#todolist`).append(`<div id="card${todoList[i]._id}" class="myCard" onclick="chooseCard(${todoList[i]._id})"></div>`);
+        $(`#card${todoList[i]._id}`).append(`<div class="task"></div>`);
         $(task[i]).append(`<h4>${todoList[i]._name}</h4>`);
         $(task[i]).append(`<p>${todoList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == todoList[i]._assignedTo);
         $(task[i]).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
     }
+}
+
+function chooseCard(id) {
+    let thisCard = todoList.find(userList => userList._id == id);
+    addBackgroungBlock();
+
+    $("body").append(`<div id="form" class="form"></div>`);
+    $(`#form`).append(`<form id="editTask" class="d-inline" name="name" onsubmit="return taskExit(${id})">
+        <p>Task</p>
+        <div>Name: </div><input type="text" name="fname" id="fname" class="w-100" value="${thisCard._name}">
+        <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description" value="${thisCard._description}">
+        <div>Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100" value="${thisCard._dueDate}">
+        <div>Assigned: </div>
+
+        <select id="fAssigned" class="w-100">
+            <option>${thisCard._assignedTo}</option>
+            <option> Ari </option>
+            <option> Alison </option>
+            <option> Chloe </option>
+        </select>
+
+        <div class="w-100">
+            <input type="radio" value="TODO" name="schedule" checked>
+            <label for="TODO">Todo</label>
+            <input type="radio" value="DOING" name="schedule">
+            <label for="DOING">Doing</label>
+            <input type="radio" value="DONE" name="schedule">
+            <label for="DONE">Done</label>
+        </div>
+        <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
+        <input type="reset" value="submit" class="float-right ml-2" onclick="taskExit(${id})"> 
+        </form>`);
+
+    printCard();
 }
 
 function clearCardBoard() {
@@ -34,7 +67,7 @@ function addTask() {
     addBackgroungBlock();
 
     $("body").append(`<div id="form" class="form"></div>`);
-    $(`#form`).append(`<form id="addtask" class="d-inline" name="name" onsubmit="return validateForm()">
+    $(`#form`).append(`<form id="addtask" class="d-inline" name="name" onsubmit="return taskSubmit()">
         <p>Add task</p>
         <div>Name: </div><input type="text" name="fname" id="fname" class="w-100">
         <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description">
@@ -57,7 +90,7 @@ function addTask() {
             <label for="DONE">Done</label>
         </div>
         <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
-        <input type="reset" value="submit" class="float-right ml-2" onclick="taskSubmit()"> 
+        <input type="submit" value="submit" class="float-right ml-2" onclick="taskSubmit()"> 
         </form>`);
 
     if (clientWidth = document.documentElement.clientWidth >= 992) {
@@ -73,6 +106,18 @@ function taskSubmit() {
     task.setAssignedTo(document.getElementById("fAssigned").value)
     todoList.push(task);
     localStorage.setItem("todoList", JSON.stringify(todoList));
+    printCard();
+    cancelBtn();
+}
+
+function taskExit(id) {
+    let thisCard = todoList.find(userList => userList._id == id);
+    thisCard._name = document.getElementById("fname").value;
+    thisCard._description = document.getElementById("fDescription").value;
+    thisCard._dueDate = document.getElementById("fDueDate").value;
+    thisCard._assignedTo = document.getElementById("fAssigned").value;
+    // todoList.push(task);
+    // localStorage.setItem("todoList", JSON.stringify(todoList));
     printCard();
     cancelBtn();
 }
