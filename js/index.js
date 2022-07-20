@@ -26,7 +26,7 @@ function chooseCard(id) {
     addBackgroungBlock();
 
     $("body").append(`<div id="form" class="form"></div>`);
-    $(`#form`).append(`<form id="editTask" class="d-inline" name="name" onsubmit="return taskExit(${id})">
+    $(`#form`).append(`<form id="editTask" class="d-inline" name="name" onsubmit="return taskEdit(${id})">
         <p>Task</p>
         <div>Name: </div><input type="text" name="fname" id="fname" class="w-100" value="${thisCard._name}">
         <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description" value="${thisCard._description}">
@@ -49,10 +49,8 @@ function chooseCard(id) {
             <label for="DONE">Done</label>
         </div>
         <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
-        <input type="reset" value="submit" class="float-right ml-2" onclick="taskExit(${id})"> 
+        <input type="submit" value="submit" class="float-right ml-2"> 
         </form>`);
-
-    printCard();
 }
 
 function clearCardBoard() {
@@ -93,9 +91,9 @@ function addTask() {
         <input type="submit" value="submit" class="float-right ml-2" onclick="taskSubmit()"> 
         </form>`);
 
-    if (clientWidth = document.documentElement.clientWidth >= 992) {
-        formCenter();
-    }
+    // if (clientWidth = document.documentElement.clientWidth >= 992) {
+    formCenter();
+    // }
 }
 
 function taskSubmit() {
@@ -111,14 +109,13 @@ function taskSubmit() {
     cancelBtn();
 }
 
-function taskExit(id) {
+function taskEdit(id) {
     let thisCard = todoList.find(userList => userList._id == id);
     thisCard._name = document.getElementById("fname").value;
     thisCard._description = document.getElementById("fDescription").value;
     thisCard._dueDate = document.getElementById("fDueDate").value;
     thisCard._assignedTo = document.getElementById("fAssigned").value;
-    // todoList.push(task);
-    // localStorage.setItem("todoList", JSON.stringify(todoList));
+    localStorage.setItem("todoList", JSON.stringify(todoList));
     printCard();
     cancelBtn();
 }
