@@ -1,7 +1,8 @@
 let id = 0;
-let user = ["Ari", "Alison", "Chloe"];
+let user = [["Ari","user1.png"], ["Alison","user2.png"], ["Chloe","user3.png"]];
 let status = ["TODO", "DOING", "DONE"]
 let todoList = [];
+let doingList = [];
 let doneList = [];
 class card {
     constructor() {
