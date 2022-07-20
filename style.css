@@ -8,15 +8,16 @@ html {
 }*/
 
 body {
-	background-image: url("img/bg.jpg");
-	background-size: cover;
-	background-repeat: repeat;
-	background-attachment: fixed;
-	background-position: right 0% bottom 0%;
-	overflow: hidden;
+    background-image: url("img/bg.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: right 0% bottom 0%;
+    overflow: hidden;
+    /* Hide scrollbars */
 }
 
-.addtesk {
+.addtask {
     display: flex;
 }
 
@@ -32,7 +33,7 @@ body {
     margin-bottom: 1vh;
 }
 
-#backgroundBlock{
+#backgroundBlock {
     position: fixed;
     top: 0;
     height: 100%;
@@ -41,104 +42,105 @@ body {
     z-index: 1;
 }
 
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 992px) {
     .form {
         padding: 1rem;
         width: 30vw;
         height: auto;
         position: fixed;
         top: 0;
-        background-color: rgba(255,255,255,0.5);
-		backdrop-filter: blur(2px);
-		border-radius: 7px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(2px);
+        border-radius: 7px;
         z-index: 2;
     }
-    
+
 }
 
-@media only screen and (max-width: 991px){
+@media only screen and (max-width: 991px) {
     .form {
         padding: 1rem;
         width: 100%;
         height: auto;
         position: fixed;
-        background-color: rgba(255,255,255,0.5);
-		backdrop-filter: blur(2px);
-		border-radius: 7px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(2px);
+        border-radius: 7px;
         z-index: 2;
     }
 }
 
 /*Start of To Do List Style*/
 .list {
-	margin-top: 2rem;
-	margin-left: 1rem;
-	padding: 1rem;
-	background-color: rgba(255,255,255,0.5);
-	backdrop-filter: blur(2px);
-	border-radius: 7px;
-	height: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    border-radius: 7px;
+    height: 100%;
 }
 
-.list-name{
-	text-align: center;
-	font-family: 'Martel Sans', sans-serif;
-	font-weight: 800;
-	color: #00181E;
+.list-name {
+    text-align: center;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 800;
+    color: #00181E;
 }
 
 h4 {
-	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-	padding-top: 15px;
-	margin-bottom: 0px;
-	color: #00181E;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    padding-top: 15px;
+    margin-bottom: 0px;
+    color: #00181E;
 }
 
 p {
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	font-size: 14px;
-	padding-top: 0px;
-	margin-top: 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    padding-top: 0px;
+    margin-top: 0px;
 }
+
 .task {
-	background-color: rgba(255,255,255,0.8);
-	border-radius: 15px;
-	padding-left: 18px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding-left: 18px;
 }
 
 .user-img {
-/*	padding-bottom: 20px;*/
-	margin-top: 0px;
-	margin-bottom: 14px;
+    /*	padding-bottom: 20px;*/
+    margin-top: 0px;
+    margin-bottom: 14px;
 }
 
 .addbtn {
-	-webkit-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-	box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	background-color: rgba(255,255,255,0.50);
-	border-radius: 50%;
-	font-size: 24px;
-	border:none;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-left: 5px;
-	padding-bottom: 5px;
-	position: absolute;
-	right: 50px; bottom:
-	50px;
-	z-index: 3;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    font-size: 24px;
+    border: none;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
 }
 
 .addbtn :hover {
-	background-color: rgba(255,255,255,0.88);
-	border-radius: 50%;
-	font-size: 24px;
-	padding-top: 10px;
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.88);
+    border-radius: 50%;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
+
 /*End of To Do List Style*/

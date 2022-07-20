@@ -1,15 +1,15 @@
 let clientWidth = document.documentElement.clientWidth;
 
-function start(){
+function start() {
     id = localStorage.getItem("countID");
-    if(JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1){
+    if (JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1) {
         todoList = JSON.parse(localStorage.getItem("todoList") || "{}");
     }
     printCard();
 }
 
-function printCard(){
-    for(let i=0; i<todoList.length; i++){
+function printCard() {
+    for (let i = 0; i < todoList.length; i++) {
         $(`#todolist`).append(`<div>${todoList[i]._name}</div>`);
         $(`#todolist`).append(`<div>${todoList[i]._description}</div>`);
         $(`#todolist`).append(`<div>${todoList[i]._assignedTo}</div>`);
@@ -46,7 +46,7 @@ function addTask() {
     }
 }
 
-function taskSubmit(){
+function taskSubmit() {
     let task = new card();
     task.setName(document.getElementById("fname").value)
     task.setDescription(document.getElementById("fDescription").value)
@@ -58,12 +58,12 @@ function taskSubmit(){
     cancelBtn();
 }
 
-function cancelBtn(){
+function cancelBtn() {
     document.getElementById("form").remove();
     document.getElementById("backgroundBlock").remove();
 }
 
-function addBackgroungBlock(){
+function addBackgroungBlock() {
     const backgroundBlock = document.createElement("div");
     backgroundBlock.style.backgroundColor = "dimgray";
     backgroundBlock.setAttribute('id', 'backgroundBlock');
@@ -85,4 +85,3 @@ function formCenter() {
     obj.style.left = x + "px";
     obj.style.top = y + "px";
 }
-
