@@ -1,29 +1,30 @@
 let clientWidth = document.documentElement.clientWidth;
 
-function start(){
+function start() {
     id = localStorage.getItem("countID");
-    if(JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1){
+    if (JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1) {
         todoList = JSON.parse(localStorage.getItem("todoList") || "{}");
     }
     printCard();
 }
 
-function printCard(){
+
+function printCard() {
     clearCardBoard()
     let task = document.getElementsByClassName("task");
-    for(let i=0; i<todoList.length; i++){
+    for (let i = 0; i < todoList.length; i++) {
         $(`#todolist`).append(`<div id="card${i}" class="myCard"></div>`);
         $(`#card${i}`).append(`<div class="task"></div>`);
         $(task[i]).append(`<h4>${todoList[i]._name}</h4>`);
         $(task[i]).append(`<p>${todoList[i]._dueDate}</p>`);
-        let imgPath = user.find(userList=>userList[0]==todoList[i]._assignedTo);
+        let imgPath = user.find(userList => userList[0] == todoList[i]._assignedTo);
         $(task[i]).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
     }
 }
 
-function clearCardBoard(){
+function clearCardBoard() {
     let cardListLength = document.getElementById("todolist").children.length;
-    for (let i=1; i<cardListLength; i++){
+    for (let i = 1; i < cardListLength; i++) {
         document.getElementById("todolist").children[1].remove();
     }
 }
@@ -64,7 +65,7 @@ function addTask() {
     }
 }
 
-function taskSubmit(){
+function taskSubmit() {
     let task = new card();
     task.setName(document.getElementById("fname").value)
     task.setDescription(document.getElementById("fDescription").value)
@@ -76,12 +77,12 @@ function taskSubmit(){
     cancelBtn();
 }
 
-function cancelBtn(){
+function cancelBtn() {
     document.getElementById("form").remove();
     document.getElementById("backgroundBlock").remove();
 }
 
-function addBackgroungBlock(){
+function addBackgroungBlock() {
     const backgroundBlock = document.createElement("div");
     backgroundBlock.style.backgroundColor = "dimgray";
     backgroundBlock.setAttribute('id', 'backgroundBlock');
@@ -103,4 +104,3 @@ function formCenter() {
     obj.style.left = x + "px";
     obj.style.top = y + "px";
 }
-
