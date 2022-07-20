@@ -28,13 +28,13 @@
     <div class="container-fiuld">
         <div class="row justify-content-center">
             <div class="col-3">
-                <form class="list" id="todolist">
+                <form class="list" id="todolist" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <h2 class="list-name">To Do</h2>
                 </form>
             </div>
 
             <div class="col-3">
-                <form class="list" id="doing">
+                <form class="list" id="doing" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <h2 class="list-name">In Progress</h2>
                     <div class="task">
                         <h4>Drawing web page layout</h4>
@@ -63,7 +63,7 @@
             </div>
 
             <div class="col-3">
-                <form class="list" id="done">
+                <form class="list" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <h2 class="list-name">Done</h2>
                     <div class="task">
                         <h4>Add task popup window</h4>
