@@ -1,12 +1,23 @@
-* {
+/* {
     margin: 0;
     padding: 0;
 }
 
+html {
+	height: 100%;
+}*/
+
+body {
+	background-image: url("img/bg.jpg");
+	background-size: cover;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: right 0% bottom 0%;
+	overflow: hidden;
+}
+
 .addtesk {
     display: flex;
-
-
 }
 
 .hidden {
@@ -17,7 +28,7 @@
     height: 25vh;
 }
 
-.form input {
+.list input {
     margin-bottom: 1vh;
 }
 
@@ -26,7 +37,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.6;
     z-index: 1;
 }
 
@@ -37,7 +48,9 @@
         height: auto;
         position: fixed;
         top: 0;
-        background-color: white;
+        background-color: rgba(255,255,255,0.5);
+		backdrop-filter: blur(2px);
+		border-radius: 7px;
         z-index: 2;
     }
     
@@ -49,19 +62,25 @@
         width: 100%;
         height: auto;
         position: fixed;
-        background-color: white;
+        background-color: rgba(255,255,255,0.5);
+		backdrop-filter: blur(2px);
+		border-radius: 7px;
         z-index: 2;
     }
 }
 
 /*Start of To Do List Style*/
-.form {
+.list {
+	margin-top: 2rem;
+	margin-left: 1rem;
+	padding: 1rem;
 	background-color: rgba(255,255,255,0.5);
 	backdrop-filter: blur(2px);
 	border-radius: 7px;
+	height: 100%;
 }
 
-.form-name{
+.list-name{
 	text-align: center;
 	font-family: 'Martel Sans', sans-serif;
 	font-weight: 800;
@@ -107,6 +126,10 @@ p {
 	padding-right: 5px;
 	padding-left: 5px;
 	padding-bottom: 5px;
+	position: absolute;
+	right: 50px; bottom:
+	50px;
+	z-index: 3;
 }
 
 .addbtn :hover {
