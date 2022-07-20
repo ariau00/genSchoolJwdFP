@@ -68,13 +68,13 @@ function addTask() {
 
     $("body").append(`<div id="form" class="form"></div>`);
     $(`#form`).append(`<form id="addtask" class="d-inline" name="name" onsubmit="return taskSubmit()">
-        <p>Add task</p>
-        <div>Name: </div><input type="text" name="fname" id="fname" class="w-100">
-        <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description">
-        <div>Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100">
-        <div>Assigned: </div>
+        <p class="addtask-w">Add task</p>
+        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar">
+        <div class="box-w">Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description box-bar">
+        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar">
+        <div class="box-w">Assigned: </div>
 
-        <select id="fAssigned" class="w-100">
+        <select id="fAssigned" class="w-100 box-bar">
             <option> ---Choose--- </option>
             <option> Ari </option>
             <option> Alison </option>
@@ -89,8 +89,8 @@ function addTask() {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
-        <input type="submit" value="submit" class="float-right ml-2" onclick="taskSubmit()"> 
+        <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
+        <input type="submit" value="submit" class="float-right ml-2 submit-btn" onclick="taskSubmit()"> 
         </form>`);
 
     if (clientWidth = document.documentElement.clientWidth >= 992) {
