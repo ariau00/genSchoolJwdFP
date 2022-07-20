@@ -45,7 +45,7 @@ class card {
     setDueDate(dueDate) {
         this._dueDate = dueDate;
     }
-    setStatus(status) {
+    setStatus(status){
         this._status = status;
     }
 }
