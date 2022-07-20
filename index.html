@@ -35,12 +35,11 @@
 </head>
 
 <body>
-    <button onclick = "addTask()" id="addTaskBtn" style="position: absolute; right: 50px; bottom: 50px;">temp</button>
 <!--	Start of To Do List    -->
 	<div class="container-fiuld justify-content-center">
 	  <div class="row">
 	    <div class="col-4">	  
-			<form class="form">
+			<form class="form" id="todo">
 				<h2 class="form-name">To Do</h2>
 				<div class="task">
 				  <h4>Design Button</h4>
@@ -77,7 +76,7 @@
 	  </div>
 		  
 		 <div class="col-4">	  
-			<form class="form">
+			<form class="form" id="doing">
 				<h2 class="form-name">In Progress</h2>
 				<div class="task">
 				  <h4>Drawing web page layout</h4>
@@ -106,7 +105,7 @@
 	  </div>
 		  
 	     <div class="col-4">	  
-			<form class="form">
+			<form class="form" id="done">
 				<h2 class="form-name">Done</h2>
 				<div class="task">
 				  <h4>Add task popup window</h4>
@@ -130,7 +129,7 @@
 <!--	End of To Do List    -->
 
 <!--  Start of Add button	-->
-	<button></button>
+	<button onclick = "addTask()" id="addTaskBtn" style="position: absolute; right: 50px; bottom: 50px;"><img src="img/add.png" alt="add.btn"></button>
 <!--  End of Add button    -->
 
 <!--Start of Bootstrap Js -->
