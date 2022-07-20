@@ -1,5 +1,23 @@
 let clientWidth = document.documentElement.clientWidth;
 
+function start(){
+    id = localStorage.getItem("countID");
+    if(JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1){
+        todoList = JSON.parse(localStorage.getItem("todoList") || "{}");
+    }
+    printCard();
+}
+
+function printCard(){
+    for(let i=0; i<todoList.length; i++){
+        $(`#todolist`).append(`<div>${todoList[i]._name}</div>`);
+        $(`#todolist`).append(`<div>${todoList[i]._description}</div>`);
+        $(`#todolist`).append(`<div>${todoList[i]._assignedTo}</div>`);
+        $(`#todolist`).append(`<div>${todoList[i]._dueDate}</div>`);
+    }
+
+}
+
 function addTask() {
     document.getElementById("addTaskBtn").classList.add("addtesk");
     addBackgroungBlock();
@@ -7,10 +25,10 @@ function addTask() {
     $("body").append(`<div id="form" class="form"></div>`);
     $(`#form`).append(`<form id="addtask" class="d-inline" name="name" onsubmit="return validateForm()">
         <p>Add task</p>
-        <div>Name: </div><input type="text" name="fname" class="w-100">
-        <div>Description: </div><input type="text" name="fDescription" class="w-100 description">
-        <div>Duedate: </div><input type="date" name="fDueDate" class="w-100">
-        <div>Assigned: </div><input type="text" name="fAssigned" class="w-100">
+        <div>Name: </div><input type="text" name="fname" id="fname" class="w-100">
+        <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description">
+        <div>Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100">
+        <div>Assigned: </div><input type="text" name="fAssigned" id="fAssigned" class="w-100">
         <div class="w-100">
             <input type="radio" value="TODO" name="schedule" checked>
             <label for="TODO">Todo</label>
@@ -20,16 +38,24 @@ function addTask() {
             <label for="DONE">Done</label>
         </div>
         <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
-        <input type="submit" value="submit" class="float-right ml-2">
-    </form>`);
+        <input type="reset" value="submit" class="float-right ml-2" onclick="taskSubmit()"> 
+        </form>`);
 
     if (clientWidth = document.documentElement.clientWidth >= 992) {
         formCenter();
     }
 }
 
-function taskSubmit(temp){
-    console.log(temp)
+function taskSubmit(){
+    let task = new card();
+    task.setName(document.getElementById("fname").value)
+    task.setDescription(document.getElementById("fDescription").value)
+    task.setDueDate(document.getElementById("fDueDate").value)
+    task.setAssignedTo(document.getElementById("fAssigned").value)
+    todoList.push(task);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    printCard();
+    cancelBtn();
 }
 
 function cancelBtn(){
