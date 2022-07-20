@@ -2,7 +2,6 @@ let clientWidth = document.documentElement.clientWidth;
 
 function addTask() {
     document.getElementById("addTaskBtn").classList.add("addtesk");
-
     addBackgroungBlock();
 
     $("body").append(`<div id="form" class="form"></div>`);
@@ -20,13 +19,17 @@ function addTask() {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <input type="reset" value="cancel" class="float-right ml-2" onclick = "cancelBtn()">
+        <input type="reset" value="cancel" class="float-right ml-2" onclick="cancelBtn()">
         <input type="submit" value="submit" class="float-right ml-2">
     </form>`);
 
     if (clientWidth = document.documentElement.clientWidth >= 992) {
         formCenter();
     }
+}
+
+function taskSubmit(temp){
+    console.log(temp)
 }
 
 function cancelBtn(){
