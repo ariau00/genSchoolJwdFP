@@ -12,7 +12,7 @@ function printCard() {
     clearCardBoard()
     let task = document.getElementsByClassName("task");
     for (let i = 0; i < todoList.length; i++) {
-        $(`#todolist`).append(`<div id="card${todoList[i]._id}" class="myCard" onclick="chooseCard(${todoList[i]._id})"></div>`);
+        $(`#todolist`).append(`<div id="card${todoList[i]._id}" class="myCard" onclick="chooseCard(${todoList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
         $(`#card${todoList[i]._id}`).append(`<div class="task"></div>`);
         $(task[i]).append(`<h4>${todoList[i]._name}</h4>`);
         $(task[i]).append(`<p>${todoList[i]._dueDate}</p>`);
@@ -148,4 +148,18 @@ function formCenter() {
     obj.style.position = "absolute";
     obj.style.left = x + "px";
     obj.style.top = y + "px";
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }
