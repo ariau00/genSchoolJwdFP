@@ -8,14 +8,25 @@ function start() {
     printCard();
 }
 
-function printCard() {
-    for (let i = 0; i < todoList.length; i++) {
-        $(`#todolist`).append(`<div>${todoList[i]._name}</div>`);
-        $(`#todolist`).append(`<div>${todoList[i]._description}</div>`);
-        $(`#todolist`).append(`<div>${todoList[i]._assignedTo}</div>`);
-        $(`#todolist`).append(`<div>${todoList[i]._dueDate}</div>`);
-    }
 
+function printCard() {
+    clearCardBoard()
+    let task = document.getElementsByClassName("task");
+    for (let i = 0; i < todoList.length; i++) {
+        $(`#todolist`).append(`<div id="card${i}" class="myCard"></div>`);
+        $(`#card${i}`).append(`<div class="task"></div>`);
+        $(task[i]).append(`<h4>${todoList[i]._name}</h4>`);
+        $(task[i]).append(`<p>${todoList[i]._dueDate}</p>`);
+        let imgPath = user.find(userList => userList[0] == todoList[i]._assignedTo);
+        $(task[i]).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+    }
+}
+
+function clearCardBoard() {
+    let cardListLength = document.getElementById("todolist").children.length;
+    for (let i = 1; i < cardListLength; i++) {
+        document.getElementById("todolist").children[1].remove();
+    }
 }
 
 function addTask() {
@@ -28,7 +39,15 @@ function addTask() {
         <div>Name: </div><input type="text" name="fname" id="fname" class="w-100">
         <div>Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description">
         <div>Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100">
-        <div>Assigned: </div><input type="text" name="fAssigned" id="fAssigned" class="w-100">
+        <div>Assigned: </div>
+
+        <select id="fAssigned" class="w-100">
+            <option> ---Choose--- </option>
+            <option> Ari </option>
+            <option> Alison </option>
+            <option> Chloe </option>
+        </select>
+
         <div class="w-100">
             <input type="radio" value="TODO" name="schedule" checked>
             <label for="TODO">Todo</label>

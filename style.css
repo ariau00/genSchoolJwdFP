@@ -4,7 +4,7 @@
 }
 
 html {
-	height: 100%;
+    height: 100%;
 }*/
 
 body {
@@ -40,6 +40,10 @@ body {
     width: 100%;
     opacity: 0.6;
     z-index: 1;
+}
+
+.myCard {
+    padding: 10px;
 }
 
 @media only screen and (min-width: 992px) {
@@ -110,7 +114,7 @@ p {
 }
 
 .user-img {
-    /*	padding-bottom: 20px;*/
+    /*  padding-bottom: 20px;*/
     margin-top: 0px;
     margin-bottom: 14px;
 }
