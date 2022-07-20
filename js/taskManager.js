@@ -49,5 +49,6 @@ class card {
 
 function countID() {
     id++;
+    localStorage.setItem("countID", id);
     return id;
 }
