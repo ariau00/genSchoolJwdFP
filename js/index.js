@@ -86,7 +86,7 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <button type="button" value="remove" class="float-left ml-2" onclick="removeBtn(${id})">Remove</button>
+        <button type="button" value="remove" class="float-left ml-2 removebtn" onclick="removeBtn(${id})">Remove</button>
         <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
         <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
         </form>`);

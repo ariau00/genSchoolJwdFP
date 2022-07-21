@@ -222,12 +222,11 @@ p {
 	font-size: 16px;
 	border: rgba(238,238,238,1.00);
 	border-radius: 12px!important;
-	
 }
 
 .submit-btn:hover {
 	background-color: rgba(255,255,255,0.92);
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24), 0 12px 15px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 4px 6px 0 rgba(123, 123, 123,0.24), 0 4px 6px 0 rgba(123, 123, 123,0.19);
 }
 
 .re-btn {
@@ -241,9 +240,22 @@ p {
 
 .re-btn:hover {
 	background-color: rgba(255,255,255,0.92);
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.22), 0 12px 15px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 4px 6px 0 rgba(123, 123, 123,0.24), 0 4px 6px 0 rgba(123, 123, 123,0.19);
 }
 
+.removebtn {
+	background-color: rgba(255,255,255,1.00);
+	font-family: 'Martel Sans', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	border: rgba(238,238,238,1.00);
+	border-radius: 12px!important;
+}
+
+.removebtn:hover {
+	background-color: rgba(255,255,255,0.92);
+	box-shadow: 0 4px 6px 0 rgba(123, 123, 123,0.24), 0 4px 6px 0 rgba(123, 123, 123,0.19);
+}
 /*End - All about Add botton*/
 
 /*Start of Footer*/
