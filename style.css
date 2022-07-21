@@ -89,7 +89,6 @@ body {
         width: 100%;
         height: auto;
         position: fixed;
-        /* top: 211px; */
         background-color: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(2px);
         border-radius: 7px;
@@ -227,7 +226,7 @@ p {
 
 .submit-btn:hover {
 	background-color: rgba(255,255,255,0.92);
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.24), 0 12px 15px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 6px 8px 0 rgba(112, 112, 112,.24), 0 6px 8px 0 rgba(112, 112, 112,0.19);
 }
 
 .re-btn {
@@ -241,7 +240,7 @@ p {
 
 .re-btn:hover {
 	background-color: rgba(255,255,255,0.92);
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.22), 0 12px 15px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 6px 8px 0 rgba(112, 112, 112,.24), 0 6px 8px 0 rgba(112, 112, 112,0.19);
 }
 
 /*End - All about Add botton*/

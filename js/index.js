@@ -1,5 +1,4 @@
 let clientWidth = document.documentElement.clientWidth;
-
 function start() {
     id = localStorage.getItem("countID");
     if (JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1) {
@@ -86,7 +85,6 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <button type="button" value="remove" class="float-left ml-2" onclick="removeBtn(${id})">Remove</button>
         <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
         <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
         </form>`);
@@ -109,10 +107,10 @@ function clearCardBoard() {
         document.getElementById("todolist").children[1].remove();
     }
     for (let i = 1; i < doingListLength; i++) {
-        document.getElementById("doing").children[1].remove();
+        document.getElementById("doinglist").children[1].remove();
     }
     for (let i = 1; i < doneListLength; i++) {
-        document.getElementById("done").children[1].remove();
+        document.getElementById("donelist").children[1].remove();
     }
 }
 
@@ -192,15 +190,21 @@ function taskEdit(id) {
     let thisCard;
     if (findList(id) == "todoList") {
         thisCard = todoList.find(userList => userList._id == id);
+        console.log(findList(id))
     } else if (findList(id) == "doingList") {
         thisCard = doingList.find(userList => userList._id == id);
+        console.log(findList(id))
     } else if (findList(id) == "doneList") {
         thisCard = doneList.find(userList => userList._id == id);
+        console.log(findList(id))
     }
+    console.log(thisCard)
     thisCard._name = document.getElementById("fname").value;
     thisCard._description = document.getElementById("fDescription").value;
     thisCard._dueDate = document.getElementById("fDueDate").value;
     thisCard._assignedTo = document.getElementById("fAssigned").value;
+
+    changeList(thisCard);
     if (findList(id) == "todoList") {
         localStorage.setItem("todoList", JSON.stringify(todoList));
     } else if (findList(id) == "doingList") {
@@ -212,23 +216,40 @@ function taskEdit(id) {
     cancelBtn();
 }
 
+function changeList(thisCard){
+    console.log(thisCard._status)
+    if(thisCard._status != $('input[name=schedule]:checked').val()){
+        thisCard.setStatus($('input[name=schedule]:checked').val());
+        todoList = todoList.filter(cardid => cardid._id != id);
+        doingList = doingList.filter(cardid => cardid._id != id);
+        doneList = doneList.filter(cardid => cardid._id != id);
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+        localStorage.setItem("doingList", JSON.stringify(doingList));
+        localStorage.setItem("doneList", JSON.stringify(doneList));
+        setList(thisCard);
+    }
+}
+
 function cancelBtn() {
     document.getElementById("form").remove();
     document.getElementById("backgroundBlock").remove();
 }
 
+<<<<<<< HEAD
+=======
 function removeBtn(id) {
-    if (findList(id) == "todoList") {
-        localStorage.removeItem("todoList", JSON.stringify(todoList));
-    } else if (findList(id) == "doingList") {
-        localStorage.removeItem("doingList", JSON.stringify(doingList));
-    } else if (findList(id) == "doneList") {
-        localStorage.removeItem("doneList", JSON.stringify(doneList));
-    }
+    todoList = todoList.filter(cardid => cardid._id != id);
+    doingList = doingList.filter(cardid => cardid._id != id);
+    doneList = doneList.filter(cardid => cardid._id != id);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    localStorage.setItem("doingList", JSON.stringify(doingList));
+    localStorage.setItem("doneList", JSON.stringify(doneList));
+    cancelBtn();
     clearCardBoard();
     printCard();
 }
 
+>>>>>>> 8d9baf861bb3dff0dc22c9ad86071e8bba621209
 function addBackgroungBlock() {
     const backgroundBlock = document.createElement("div");
     backgroundBlock.style.backgroundColor = "dimgray";
