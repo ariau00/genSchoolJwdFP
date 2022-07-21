@@ -1,5 +1,5 @@
 let id = 0;
-let user = [["Ari","user1.png"], ["Alison","user2.png"], ["Chloe","user3.png"], ["", "person.png"]];
+let user = [["Ari", "user1.png"], ["Alison", "user2.png"], ["Chloe", "user3.png"], ["", "person.png"]];
 let status = ["TODO", "DOING", "DONE"]
 let todoList = [];
 let doingList = [];
@@ -47,7 +47,7 @@ class card {
     setDueDate(dueDate) {
         this._dueDate = dueDate;
     }
-    setStatus(status){
+    setStatus(status) {
         this._status = status;
     }
 }

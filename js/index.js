@@ -6,15 +6,6 @@ let DONE = true;
 
 function start() {
     id = localStorage.getItem("countID");
-    // if (JSON.parse(localStorage.getItem("todoList") || "{}").length >= 1) {
-    //     todoList = JSON.parse(localStorage.getItem("todoList") || "{}");
-    // }
-    // if (JSON.parse(localStorage.getItem("doingList") || "{}").length >= 1) {
-    //     doingList = JSON.parse(localStorage.getItem("doingList") || "{}");
-    // }
-    // if (JSON.parse(localStorage.getItem("doneList") || "{}").length >= 1) {
-    //     doneList = JSON.parse(localStorage.getItem("doneList") || "{}");
-    // }
 
     if (JSON.parse(localStorage.getItem("fullList") || "{}").length >= 1) {
         fullList = JSON.parse(localStorage.getItem("fullList") || "{}");
@@ -39,8 +30,6 @@ function printCard() {
             $(`#todoListID${todoList[i]._id}`).append(`<div><img class="user-img" src="img/person.png" alt="person.png" width="35px"></div>`);
         }
     }
-
-
 
     for (let i = 0; i < doingList.length; i++) {
         $(`#doing`).append(`<div id="card${doingList[i]._id}" class="myCard" onclick="chooseCard(${doingList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
@@ -70,14 +59,7 @@ function printCard() {
         }
     }
 
-    // mobileList = [];
-
-
     for (let i = 0; i < filterList.length; i++) {
-        // todoList.length != 0 ? mobileList.push(todoList.find(member => member.id == moList[i])) : console.log();
-        // doingList.length != 0 ? mobileList.push(doingList.find(member => member.id == moList[i])) : console.log();
-        // doneList.length != 0 ? mobileList.push(doneList.find(member => member.id == moList[i])) : console.log();
-        // localStorage.setItem("mobileList", JSON.stringify(mobileList));
 
         $(`#molist`).append(`<div id="mocard${filterList[i]._id}" class="myCard" onclick="chooseCard(${filterList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
         $(`#mocard${filterList[i]._id}`).append(`<div class="task" id="molistID${filterList[i]._id}"></div>`);
@@ -86,16 +68,7 @@ function printCard() {
         let imgPath = user.find(userList => userList[0] == filterList[i]._assignedTo);
         if (typeof (user.find(userList => userList[0] == filterList[i]._assignedTo)) != 'undefined') {
             $(`#molistID${filterList[i]._id}`).append(`<div id="temp"><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
-
-            // if (filterList[i]._status == "TODO") {
-            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>To Do</button>`);
-            // } else if (filterList[i]._status == "DOING") {
-            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>Doing</button>`);
-            // } else if (filterList[i]._status == "DONE") {
-            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>Done</button>`);
-            // }
             addStatusIcon(i);
-
         } else if (typeof (user.find(userList => userList[0] == fullList[i]._assignedTo)) == 'undefined') {
             $(`#molistID${filterList[i]._id}`).append(`<div><img class="user-img" src="img/person.png" alt="person.png" width="35px"></div>`);
             addStatusIcon(i);
@@ -116,9 +89,6 @@ function addStatusIcon(id) {
 function changeIconWord(id) {
     var evt = window.event;
     if (evt.stopPropagation) evt.stopPropagation();
-    // if (evt.changeIconWord!=null) evt.changeIconWord = true;
-
-
 
     if (filterList[id]._status == "TODO") {
         filterList[id]._status = "DOING";
@@ -135,22 +105,7 @@ function changeIconWord(id) {
 }
 
 function chooseCard(id) {
-    // let thisCard;
     let thisCard = fullList.find(cardList => cardList._id == id);
-    // if (findList(id) == 'todoList') {
-    //     thisCard = todoList.find(userList => userList._id == id);
-    // } else if (findList(id) == 'doingList') {
-    //     thisCard = doingList.find(userList => userList._id == id);
-    // } else if (findList(id) == 'doneList') {
-    //     thisCard = doneList.find(userList => userList._id == id);
-    // }
-    // if (typeof (todoList.find(userList => userList._id == id)) != 'undefined') {
-    //     thisCard = todoList.find(userList => userList._id == id);
-    // } else if (typeof (doingList.find(userList => userList._id == id)) != 'undefined') {
-    //     thisCard = doingList.find(userList => userList._id == id);
-    // } else if (typeof (doneList.find(userList => userList._id == id)) != 'undefined') {
-    //     thisCard = doneList.find(userList => userList._id == id);
-    // }
     addBackgroungBlock();
 
     $("body").append(`<div id="form" class="form"></div>`);
@@ -192,10 +147,6 @@ function chooseCard(id) {
 }
 
 function clearCardBoard() {
-    // let todoListLength = document.getElementById("todolist").children.length;
-    // let doingListLength = document.getElementById("doing").children.length;
-    // let doneListLength = document.getElementById("done").children.length;
-    // let moListLength = document.getElementById("molist").children.length;
     for (let i = document.getElementById("todolist").children.length; i > 1; i--) {
         console.log(document.getElementById("todolist").children.length)
         document.getElementById("todolist").children[1].remove();
@@ -250,18 +201,6 @@ function setList(task) {
 
     fullList.push(task);
     updateList();
-    // const whichList = $('input[name=schedule]:checked').val();
-    // if (whichList == "TODO") {
-    //     todoList.push(task);
-    //     localStorage.setItem("todoList", JSON.stringify(todoList));
-    // } else if (whichList == "DOING") {
-    //     doingList.push(task);
-    //     localStorage.setItem("doingList", JSON.stringify(doingList));
-    // } else if (whichList == "DONE") {
-    //     doneList.push(task);
-    //     localStorage.setItem("doneList", JSON.stringify(doneList));
-    // }
-    // setmoList();
 }
 
 function updateList() {
@@ -271,22 +210,6 @@ function updateList() {
     filterList = fullList.filter(stat => stat._status == "TODO" && TODO == true || stat._status == "DOING" && DOING == true || stat._status == "DONE" && DONE == true)
     localStorage.setItem("fullList", JSON.stringify(fullList));
 }
-
-// function setmoList() {
-//     moList = [];
-//     for (let i = 0; i < todoList.length; i++) {
-//         moList.push(todoList[i]._id);
-//         console.log(1)
-//     }
-//     for (let i = 0; i < doingList.length; i++) {
-//         moList.push(doingList[i]._id);
-//         console.log(2)
-//     }
-//     for (let i = 0; i < doneList.length; i++) {
-//         moList.push(doneList[i]._id);
-//         console.log(3)
-//     }
-// }
 
 function taskSubmit() {
     let task = new card();
@@ -300,27 +223,9 @@ function taskSubmit() {
     cancelBtn();
 }
 
-// function findList(id) {
-//     if (typeof (todoList.find(userList => userList._id == id)) != 'undefined') {
-//         return "todoList";
-//     } else if (typeof (doingList.find(userList => userList._id == id)) != 'undefined') {
-//         return "doingList";
-//     } else if (typeof (doneList.find(userList => userList._id == id)) != 'undefined') {
-//         return "doneList";
-//     }
-// }
-
 function taskEdit(id) {
     let thisCard = fullList.find(cardList => cardList._id == id);
 
-
-    // if (findList(id) == "todoList") {
-    //     thisCard = todoList.find(userList => userList._id == id);
-    // } else if (findList(id) == "doingList") {
-    //     thisCard = doingList.find(userList => userList._id == id);
-    // } else if (findList(id) == "doneList") {
-    //     thisCard = doneList.find(userList => userList._id == id);
-    // }
     thisCard._name = document.getElementById("fname").value;
     thisCard._description = document.getElementById("fDescription").value;
     thisCard._dueDate = document.getElementById("fDueDate").value;
@@ -328,34 +233,10 @@ function taskEdit(id) {
     if (thisCard._status != $('input[name=schedule]:checked').val()) {
         thisCard._status = ($('input[name=schedule]:checked').val());
     }
-    // changeList(thisCard);
-    // if (findList(id) == "todoList") {
-    //     localStorage.setItem("todoList", JSON.stringify(todoList));
-    // } else if (findList(id) == "doingList") {
-    //     localStorage.setItem("doingList", JSON.stringify(doingList));
-    // } else if (findList(id) == "doneList") {
-    //     localStorage.setItem("doneList", JSON.stringify(doneList));
-    // }
     updateList();
     printCard();
     cancelBtn();
 }
-
-// function changeList(thisCard) {
-//     console.log(thisCard._status)
-//     if (thisCard._status != $('input[name=schedule]:checked').val()) {
-//         thisCard.setStatus($('input[name=schedule]:checked').val());
-
-
-//         todoList = todoList.filter(cardid => cardid._id != id);
-//         doingList = doingList.filter(cardid => cardid._id != id);
-//         doneList = doneList.filter(cardid => cardid._id != id);
-//         localStorage.setItem("todoList", JSON.stringify(todoList));
-//         localStorage.setItem("doingList", JSON.stringify(doingList));
-//         localStorage.setItem("doneList", JSON.stringify(doneList));
-//         setList(thisCard);
-//     }
-// }
 
 function cancelBtn() {
     document.getElementById("form").remove();
@@ -364,12 +245,6 @@ function cancelBtn() {
 
 function removeBtn(id) {
     fullList = fullList.filter(cardid => cardid._id != id);
-    // todoList = todoList.filter(cardid => cardid._id != id);
-    // doingList = doingList.filter(cardid => cardid._id != id);
-    // doneList = doneList.filter(cardid => cardid._id != id);
-    // localStorage.setItem("todoList", JSON.stringify(todoList));
-    // localStorage.setItem("doingList", JSON.stringify(doingList));
-    // localStorage.setItem("doneList", JSON.stringify(doneList));
     updateList();
     cancelBtn();
     printCard();
@@ -386,7 +261,6 @@ function addBackgroungBlock() {
 
 function formCenter() {
     let obj = document.getElementById("form");
-    // obj.style.display = "";
     clientWidth = document.documentElement.clientWidth;
     let clientHeight = document.documentElement.clientHeight;
     let objWidth = obj.offsetWidth;
