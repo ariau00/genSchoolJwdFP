@@ -110,6 +110,13 @@ body {
     overflow-y: scroll;
 }
 
+.list-name {
+    text-align: center;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: 800;
+    color: #00181E;
+}
+
 ::-webkit-scrollbar {
   height: 0;
   width: 0;
