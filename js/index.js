@@ -85,6 +85,7 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
+        <button type="button" value="remove" class="float-left ml-2" onclick="removeBtn(${id})">Remove</button>
         <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
         <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
         </form>`);
@@ -107,10 +108,10 @@ function clearCardBoard() {
         document.getElementById("todolist").children[1].remove();
     }
     for (let i = 1; i < doingListLength; i++) {
-        document.getElementById("doinglist").children[1].remove();
+        document.getElementById("doing").children[1].remove();
     }
     for (let i = 1; i < doneListLength; i++) {
-        document.getElementById("donelist").children[1].remove();
+        document.getElementById("done").children[1].remove();
     }
 }
 
@@ -235,8 +236,6 @@ function cancelBtn() {
     document.getElementById("backgroundBlock").remove();
 }
 
-<<<<<<< HEAD
-=======
 function removeBtn(id) {
     todoList = todoList.filter(cardid => cardid._id != id);
     doingList = doingList.filter(cardid => cardid._id != id);
@@ -249,7 +248,6 @@ function removeBtn(id) {
     printCard();
 }
 
->>>>>>> 8d9baf861bb3dff0dc22c9ad86071e8bba621209
 function addBackgroungBlock() {
     const backgroundBlock = document.createElement("div");
     backgroundBlock.style.backgroundColor = "dimgray";
