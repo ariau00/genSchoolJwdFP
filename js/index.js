@@ -21,13 +21,13 @@ function printCard() {
         $(`#todoListID${todoList[i]._id}`).append(`<h4>${todoList[i]._name}</h4>`);
         $(`#todoListID${todoList[i]._id}`).append(`<p>${todoList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == todoList[i]._assignedTo);
-        $(`#todoListID${todoList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
-    
+        $(`#todoListID${todoList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disabled>To Do</button></div>`);
+
         $(`#molist`).append(`<div id="mocard${todoList[i]._id}" class="myCard" onclick="chooseCard(${todoList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
         $(`#mocard${todoList[i]._id}`).append(`<div class="task" id="molistID${todoList[i]._id}"></div>`);
         $(`#molistID${todoList[i]._id}`).append(`<h4>${todoList[i]._name}</h4>`);
         $(`#molistID${todoList[i]._id}`).append(`<p>${todoList[i]._dueDate}</p>`);
-        $(`#molistID${todoList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+        $(`#molistID${todoList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disabled>To Do</button></div>`);
     }
 
     for (let i = 0; i < doingList.length; i++) {
@@ -36,7 +36,7 @@ function printCard() {
         $(`#doingListID${doingList[i]._id}`).append(`<h4>${doingList[i]._name}</h4>`);
         $(`#doingListID${doingList[i]._id}`).append(`<p>${doingList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == doingList[i]._assignedTo);
-        $(`#doingListID${doingList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+        $(`#doingListID${doingList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disabled>Doing</button></div>`);
     }
 
     for (let i = 0; i < doneList.length; i++) {
@@ -45,7 +45,7 @@ function printCard() {
         $(`#doneListID${doneList[i]._id}`).append(`<h4>${doneList[i]._name}</h4>`);
         $(`#doneListID${doneList[i]._id}`).append(`<p>${doneList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == doneList[i]._assignedTo);
-        $(`#doneListID${doneList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+        $(`#doneListID${doneList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disable>Done</button></div>`);
     }
 }
 
@@ -71,9 +71,9 @@ function chooseCard(id) {
     $("body").append(`<div id="form" class="form"></div>`);
     $(`#form`).append(`<form id="editTask" class="d-inline" name="name" onsubmit="return taskEdit(${id})">
         <p class="addtask-w">Task</p>
-        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar" value="${thisCard._name}">
+        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar" value="${thisCard._name}" required>
         <div class="box-w">Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 box-bar description" value="${thisCard._description}">
-        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar" value="${thisCard._dueDate}">
+        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar" value="${thisCard._dueDate}" required>
         <div class="box-w">Assigned: </div>
 
         <select id="fAssigned" class="w-100 box-bar">
@@ -91,9 +91,9 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <button type="button" value="remove" class="float-left ml-2 removebtn" onclick="removeBtn(${id})">Remove</button>
-        <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
-        <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
+        <button type="button" value="remove" class="float-left ml-2 form-btn" onclick="removeBtn(${id})">Remove</button>
+        <input type="reset" value="cancel" class="float-right ml-2 form-btn" onclick="cancelBtn()">
+        <input type="submit" value="submit" class="float-right ml-2 form-btn"> 
         </form>`);
 
     if (findList(id) == "todoList") {
@@ -128,12 +128,12 @@ function addTask() {
     $("body").append(`<div id="form" class="form"></div>`);
     $(`#form`).append(`<form id="addtask" class="d-inline" name="name" onsubmit="return taskSubmit()">
         <p class="addtask-w">Add task</p>
-        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar">
+        <div class="box-w">Name: </div><input type="text" name="fname" id="fname" class="w-100 box-bar" required>
         <div class="box-w">Description: </div><input type="text" name="fDescription" id="fDescription" class="w-100 description box-bar">
-        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar">
+        <div class="box-w">Duedate: </div><input type="date" name="fDueDate" id="fDueDate" class="w-100 box-bar" required>
         <div class="box-w">Assigned: </div>
 
-        <select id="fAssigned" class="w-100 box-bar">
+        <select id="fAssigned" class="w-100 box-bar" required>
             <option> ---Choose--- </option>
             <option> Ari </option>
             <option> Alison </option>
@@ -148,8 +148,8 @@ function addTask() {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
-        <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
+        <input type="reset" value="cancel" class="float-right ml-2 form-btn" onclick="cancelBtn()">
+        <input type="submit" value="submit" class="float-right ml-2 form-btn"> 
         </form>`);
 
     formCenter();
