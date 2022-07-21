@@ -71,7 +71,7 @@ function printCard() {
     }
 
     // mobileList = [];
-    
+
 
     for (let i = 0; i < filterList.length; i++) {
         // todoList.length != 0 ? mobileList.push(todoList.find(member => member.id == moList[i])) : console.log();
@@ -85,11 +85,53 @@ function printCard() {
         $(`#molistID${filterList[i]._id}`).append(`<p>${filterList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == filterList[i]._assignedTo);
         if (typeof (user.find(userList => userList[0] == filterList[i]._assignedTo)) != 'undefined') {
-            $(`#molistID${filterList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+            $(`#molistID${filterList[i]._id}`).append(`<div id="temp"><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+
+            // if (filterList[i]._status == "TODO") {
+            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>To Do</button>`);
+            // } else if (filterList[i]._status == "DOING") {
+            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>Doing</button>`);
+            // } else if (filterList[i]._status == "DONE") {
+            //     $(`#molistID${filterList[i]._id} > div`).append(`<button class="task-btn" disable>Done</button>`);
+            // }
+            addStatusIcon(i);
+
         } else if (typeof (user.find(userList => userList[0] == fullList[i]._assignedTo)) == 'undefined') {
             $(`#molistID${filterList[i]._id}`).append(`<div><img class="user-img" src="img/person.png" alt="person.png" width="35px"></div>`);
+            addStatusIcon(i);
         }
     }
+}
+
+function addStatusIcon(id) {
+    if (filterList[id]._status == "TODO") {
+        $(`#molistID${filterList[id]._id} > div`).append(`<button id="status${id}" onclick="changeIconWord(${id}) || window.event; " class="task-btn" disable>To Do</button>`);
+    } else if (filterList[id]._status == "DOING") {
+        $(`#molistID${filterList[id]._id} > div`).append(`<button id="status${id}" onclick="changeIconWord(${id}) || window.event; " class="task-btn" disable>Doing</button>`);
+    } else if (filterList[id]._status == "DONE") {
+        $(`#molistID${filterList[id]._id} > div`).append(`<button id="status${id}" onclick="changeIconWord(${id}) || window.event; " class="task-btn" disable>Done</button>`);
+    }
+}
+
+function changeIconWord(id) {
+    var evt = window.event;
+    if (evt.stopPropagation) evt.stopPropagation();
+    // if (evt.changeIconWord!=null) evt.changeIconWord = true;
+
+
+
+    if (filterList[id]._status == "TODO") {
+        filterList[id]._status = "DOING";
+        document.getElementById(`status${id}`).innerHTML = "Doing";
+    } else if (filterList[id]._status == "DOING") {
+        filterList[id]._status = "DONE";
+        document.getElementById(`status${id}`).innerHTML = "Done";
+    } else if (filterList[id]._status == "DONE") {
+        filterList[id]._status = "TODO";
+        document.getElementById(`status${id}`).innerHTML = "To Do";
+    }
+    updateList();
+    printCard();
 }
 
 function chooseCard(id) {
