@@ -86,7 +86,6 @@ function chooseCard(id) {
             <input type="radio" value="DONE" name="schedule">
             <label for="DONE">Done</label>
         </div>
-        <button type="button" value="remove" class="float-left ml-2" onclick="removeBtn(${id})">Remove</button>
         <input type="reset" value="cancel" class="float-right ml-2 re-btn" onclick="cancelBtn()">
         <input type="submit" value="submit" class="float-right ml-2 submit-btn"> 
         </form>`);
@@ -109,10 +108,10 @@ function clearCardBoard() {
         document.getElementById("todolist").children[1].remove();
     }
     for (let i = 1; i < doingListLength; i++) {
-        document.getElementById("doing").children[1].remove();
+        document.getElementById("doinglist").children[1].remove();
     }
     for (let i = 1; i < doneListLength; i++) {
-        document.getElementById("done").children[1].remove();
+        document.getElementById("donelist").children[1].remove();
     }
 }
 
@@ -215,18 +214,6 @@ function taskEdit(id) {
 function cancelBtn() {
     document.getElementById("form").remove();
     document.getElementById("backgroundBlock").remove();
-}
-
-function removeBtn(id) {
-    if (findList(id) == "todoList") {
-        localStorage.removeItem("todoList", JSON.stringify(todoList));
-    } else if (findList(id) == "doingList") {
-        localStorage.removeItem("doingList", JSON.stringify(doingList));
-    } else if (findList(id) == "doneList") {
-        localStorage.removeItem("doneList", JSON.stringify(doneList));
-    }
-    clearCardBoard();
-    printCard();
 }
 
 function addBackgroungBlock() {
