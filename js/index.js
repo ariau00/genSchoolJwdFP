@@ -64,7 +64,7 @@ function printCard() {
         let imgPath = user.find(userList => userList[0] == doneList[i]._assignedTo);
 
         if (typeof (user.find(userList => userList[0] == doneList[i]._assignedTo)) != 'undefined') {
-            $(`#doneListID${doneList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disable>Done</button></div>`);
+            $(`#doneListID${doneList[i]._id}`).append(`<div><img class="user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"><button class="task-btn" disabled>Done</button></div>`);
         } else if (typeof (user.find(userList => userList[0] == doneList[i]._assignedTo)) == 'undefined') {
             $(`#doneListID${doneList[i]._id}`).append(`<div><img class="user-img" src="img/person.png" alt="person.png" width="35px"></div>`);
         }
