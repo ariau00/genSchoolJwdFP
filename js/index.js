@@ -22,6 +22,12 @@ function printCard() {
         $(`#todoListID${todoList[i]._id}`).append(`<p>${todoList[i]._dueDate}</p>`);
         let imgPath = user.find(userList => userList[0] == todoList[i]._assignedTo);
         $(`#todoListID${todoList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
+    
+        $(`#molist`).append(`<div id="mocard${todoList[i]._id}" class="myCard" onclick="chooseCard(${todoList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
+        $(`#mocard${todoList[i]._id}`).append(`<div class="task" id="molistID${todoList[i]._id}"></div>`);
+        $(`#molistID${todoList[i]._id}`).append(`<h4>${todoList[i]._name}</h4>`);
+        $(`#molistID${todoList[i]._id}`).append(`<p>${todoList[i]._dueDate}</p>`);
+        $(`#molistID${todoList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
     }
 
     for (let i = 0; i < doingList.length; i++) {
@@ -33,7 +39,7 @@ function printCard() {
         $(`#doingListID${doingList[i]._id}`).append(`<div><img class=""user-img" src="img/${imgPath[1]}" alt="${imgPath[1]}" width="35px"></div>`);
     }
 
-    for (i = 0; i < doneList.length; i++) {
+    for (let i = 0; i < doneList.length; i++) {
         $(`#done`).append(`<div id="card${doneList[i]._id}" class="myCard" onclick="chooseCard(${doneList[i]._id})" draggable="true" ondragstart="drag(event)"></div>`);
         $(`#card${doneList[i]._id}`).append(`<div class="task" id="doneListID${doneList[i]._id}"></div>`);
         $(`#doneListID${doneList[i]._id}`).append(`<h4>${doneList[i]._name}</h4>`);
