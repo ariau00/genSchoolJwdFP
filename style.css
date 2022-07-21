@@ -99,21 +99,21 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
     border-radius: 7px;
-    height: 100%;
+    height: 90vh;
 /*	box-shadow: 0 4px 8px 0 rgba(238, 238, 238, 0.2), 0 6px 20px 0 rgba(238, 238, 238, 0.19);*/
 /*
 	box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
              0 0  0 2px rgb(255,255,255),
 */
-	box-shadow: 0 8px 12px 0 rgba(42, 42, 42,0.24), 0 12px 15px 0 rgba(42, 42, 42 ,0.19);		
+	box-shadow: 0 8px 12px 0 rgba(42, 42, 42,0.24), 0 12px 15px 0 rgba(42, 42, 42 ,0.19);
+    overflow-y: scroll;
 }
 
-.list-name {
-    text-align: center;
-    font-family: 'Martel Sans', sans-serif;
-    font-weight: 800;
-    color: #00181E;
+::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+  color: transparent;
 }
 
 h4 {
