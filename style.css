@@ -267,3 +267,7 @@ footer {
 .task-btn {
     display: none;
 }
+
+.filterTodoBtn{
+    background-color: LightSkyBlue;
+}

@@ -117,7 +117,6 @@ function chooseCard(id) {
         <div class="box-w">Assigned: </div>
 
         <select id="fAssigned" class="w-100 box-bar">
-            <option>${thisCard._assignedTo}</option>
             <option> Ari </option>
             <option> Alison </option>
             <option> Chloe </option>
@@ -174,7 +173,6 @@ function addTask() {
         <div class="box-w">Assigned: </div>
 
         <select id="fAssigned" class="w-100 box-bar" required>
-            <option> ---Choose--- </option>
             <option> Ari </option>
             <option> Alison </option>
             <option> Chloe </option>
@@ -298,6 +296,23 @@ function drop(ev) {
 }
 function filterListControl(listname) {
     listname == "TODO" ? TODO = !TODO : listname == "DOING" ? DOING = !DOING : listname == "DONE" ? DONE = !DONE : console.log("undef List");
+    var cols = document.getElementsByClassName('filterTodoBtn');
+    if(TODO == true){
+        cols[0].style.backgroundColor = "LightSkyBlue";
+    } else{
+        cols[0].style.backgroundColor = "floralwhite";
+    }
+    if(DOING == true){
+        cols[1].style.backgroundColor = "LightSkyBlue";
+    } else{
+        cols[1].style.backgroundColor = "floralwhite";
+    }
+    if(DONE == true){
+        cols[2].style.backgroundColor = "LightSkyBlue";
+    } else{
+        cols[2].style.backgroundColor = "floralwhite";
+    }
+
     updateList();
     printCard();
 }
