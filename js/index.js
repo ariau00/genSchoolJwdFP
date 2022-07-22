@@ -281,16 +281,17 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    let getCardID = parseInt(data.substr(4)-1);
+    let getCardID = parseInt(data.substr(4));
+    let thisCard = fullList.find(cardList => cardList._id == getCardID);
     if (ev.target.id == "todolist") {
         ev.target.appendChild(document.getElementById(data));
-        fullList[getCardID]._status = "TODO";
+        thisCard._status = "TODO";
     } else if (ev.target.id == "doing") {
         ev.target.appendChild(document.getElementById(data));
-        fullList[getCardID]._status = "DOING";
+        thisCard._status = "DOING";
     } else if (ev.target.id == "done") {
         ev.target.appendChild(document.getElementById(data));
-        fullList[getCardID]._status = "DONE";
+        thisCard._status = "DONE";
     }
     updateList();
     printCard();
