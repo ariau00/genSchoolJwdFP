@@ -4,7 +4,7 @@
     .phone-btn {
         -webkit-transition-duration: 0.4s;
         transition-duration: 0.4s;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.9);
         font-size: 1em;
         border-radius: 30px;
         border: 0;
@@ -266,8 +266,4 @@ footer {
 
 .task-btn {
     display: none;
-}
-
-.filterTodoBtn{
-    background-color: rgba(255, 255, 255, 0.5);
 }

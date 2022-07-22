@@ -296,21 +296,21 @@ function drop(ev) {
 }
 function filterListControl(listname) {
     listname == "TODO" ? TODO = !TODO : listname == "DOING" ? DOING = !DOING : listname == "DONE" ? DONE = !DONE : console.log("undef List");
-    var cols = document.getElementsByClassName('filterTodoBtn');
+    var cols = document.getElementsByClassName('phone-btn');
     if(TODO == true){
-        cols[0].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
+        cols[0].style.backgroundColor = "rgba(255, 255, 255, 0.9)";
     } else{
-        cols[0].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+        cols[0].style.backgroundColor = "rgba(255, 255, 255, 0.5)";
     }
     if(DOING == true){
-        cols[1].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
+        cols[1].style.backgroundColor = "rgba(255, 255, 255, 0.9)";
     } else{
-        cols[1].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+        cols[1].style.backgroundColor = "rgba(255, 255, 255, 0.5)";
     }
     if(DONE == true){
-        cols[2].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
+        cols[2].style.backgroundColor = "rgba(255, 255, 255, 0.9)";
     } else{
-        cols[2].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
+        cols[2].style.backgroundColor = "rgba(255, 255, 255, 0.5)";
     }
 
     updateList();
