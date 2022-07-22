@@ -298,19 +298,19 @@ function filterListControl(listname) {
     listname == "TODO" ? TODO = !TODO : listname == "DOING" ? DOING = !DOING : listname == "DONE" ? DONE = !DONE : console.log("undef List");
     var cols = document.getElementsByClassName('filterTodoBtn');
     if(TODO == true){
-        cols[0].style.backgroundColor = "LightSkyBlue";
+        cols[0].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
     } else{
-        cols[0].style.backgroundColor = "floralwhite";
+        cols[0].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
     }
     if(DOING == true){
-        cols[1].style.backgroundColor = "LightSkyBlue";
+        cols[1].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
     } else{
-        cols[1].style.backgroundColor = "floralwhite";
+        cols[1].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
     }
     if(DONE == true){
-        cols[2].style.backgroundColor = "LightSkyBlue";
+        cols[2].style.backgroundColor = "rgb(255, 255, 255, 0.5)";
     } else{
-        cols[2].style.backgroundColor = "floralwhite";
+        cols[2].style.backgroundColor = "rgb(255, 255, 255, 0.9)";
     }
 
     updateList();
