@@ -148,7 +148,6 @@ function chooseCard(id) {
 
 function clearCardBoard() {
     for (let i = document.getElementById("todolist").children.length; i > 1; i--) {
-        console.log(document.getElementById("todolist").children.length)
         document.getElementById("todolist").children[1].remove();
     }
     for (let i = document.getElementById("doing").children.length; i > 1; i--) {
@@ -282,9 +281,20 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    let getCardID = parseInt(data.substr(4)-1);
+    if (ev.target.id == "todolist") {
+        ev.target.appendChild(document.getElementById(data));
+        fullList[getCardID]._status = "TODO";
+    } else if (ev.target.id == "doing") {
+        ev.target.appendChild(document.getElementById(data));
+        fullList[getCardID]._status = "DOING";
+    } else if (ev.target.id == "done") {
+        ev.target.appendChild(document.getElementById(data));
+        fullList[getCardID]._status = "DONE";
+    }
+    updateList();
+    printCard();
 }
-
 function filterListControl(listname) {
     listname == "TODO" ? TODO = !TODO : listname == "DOING" ? DOING = !DOING : listname == "DONE" ? DONE = !DONE : console.log("undef List");
     updateList();
